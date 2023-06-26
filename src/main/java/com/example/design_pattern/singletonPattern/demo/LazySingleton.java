@@ -19,6 +19,7 @@ public class LazySingleton {
 
     public static LazySingleton getInstance(){
         if (instance==null){
+            System.out.println(Thread.currentThread().getName());
             instance = new LazySingleton();
         }
         return instance;

@@ -2,6 +2,8 @@ package com.example.design_pattern.singletonPattern;
 
 import com.example.design_pattern.singletonPattern.demo.HungrySingleton;
 import com.example.design_pattern.singletonPattern.demo.LazySingleton;
+import com.example.design_pattern.singletonPattern.demo.SafeLazySingleton;
+import org.junit.jupiter.api.Test;
 
 /**
  * 单例模式
@@ -26,5 +28,15 @@ public class SingletonPatternMain {
         System.out.println(lazySingleton1 == lazySingleton);
 
 
+    }
+
+
+    @Test
+    public void testSafe() {
+        for (int i = 0; i < 20; i++) {
+            Thread thread = new Thread(SafeLazySingleton::getSafeInstance);
+            thread.setName(i + "");
+            thread.start();
+        }
     }
 }

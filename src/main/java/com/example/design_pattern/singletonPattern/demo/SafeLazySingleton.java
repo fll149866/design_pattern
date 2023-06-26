@@ -19,17 +19,44 @@ public class SafeLazySingleton {
 
     }
 
-    public static SafeLazySingleton getInstance() {
+
+    /**
+     * DCL 双重检查锁定（Double-Checked-Locking)，在多线程情况下保持高性能
+     * 1.
+     *
+     * @return
+     */
+    public static SafeLazySingleton getSafeInstance() {
         if (instance == null) {
             // 防止多个线程同时进入
             synchronized (lock) {
                 // 依次进入进行判断
                 if (instance == null) {
+                    System.out.println(Thread.currentThread().getName());
                     instance = new SafeLazySingleton();
                 }
             }
         }
         return instance;
     }
+
+    /**
+     * 线程安全，但锁粒度太大，性能较差
+     *
+     * @return
+     */
+    /*public static SafeLazySingleton getSafeInstance() {
+        if (instance == null) {
+            // 防止多个线程同时进入
+            synchronized (lock) {
+                // 依次进入进行判断
+                if (instance == null) {
+                    System.out.println(Thread.currentThread().getName());
+                    instance = new SafeLazySingleton();
+                }
+            }
+        }
+        return instance;
+    }*/
 
 }
