@@ -6,6 +6,9 @@ import com.example.design_pattern.factoryPattern.demo02.Pay;
 import com.example.design_pattern.factoryPattern.demo02.PayFactory;
 import com.example.design_pattern.factoryPattern.demo03.AliPayFactory;
 import com.example.design_pattern.factoryPattern.demo03.WechatPayFactory;
+import com.example.design_pattern.factoryPattern.demo04.AliOrderFactory;
+import com.example.design_pattern.factoryPattern.demo04.FactoryProducer;
+import com.example.design_pattern.factoryPattern.demo04.OrderFactory;
 import com.example.design_pattern.factoryPattern.demo1.EasyFactory;
 import com.example.design_pattern.factoryPattern.demo1.FactoryPattern;
 import com.example.design_pattern.factoryPattern.demo1.LeiFeng;
@@ -62,5 +65,20 @@ public class FactoryPatternMain {
         pay.unifiedOrder();
         Pay pay1 = new AliPayFactory().getPay();
         pay1.unifiedOrder();
+    }
+
+    /**
+     * 测试抽象工厂
+     */
+    @Test
+    public void testDemo04() {
+
+        AliOrderFactory aliOrderFactory = new AliOrderFactory();
+        Pay pay = aliOrderFactory.getPay();
+        pay.unifiedOrder();
+
+        // 接口简单工厂
+        OrderFactory orderFactory = FactoryProducer.createOrderFactory("wechat");
+        orderFactory.getPay().unifiedOrder();
     }
 }
