@@ -1,5 +1,6 @@
 package com.example.design_pattern.abstractFactoryPattern;
 
+
 /**
  * 抽象工厂模式
  *
@@ -10,6 +11,5 @@ package com.example.design_pattern.abstractFactoryPattern;
 public class AbstractFactoryPatternMain {
 
     public static void main(String[] args) {
-
     }
 }

@@ -2,6 +2,8 @@ package com.example.design_pattern.factoryPattern;
 
 import com.example.design_pattern.factoryPattern.demo.AddOperationFactory;
 import com.example.design_pattern.factoryPattern.demo.Operation;
+import com.example.design_pattern.factoryPattern.demo02.Pay;
+import com.example.design_pattern.factoryPattern.demo02.PayFactory;
 import com.example.design_pattern.factoryPattern.demo1.EasyFactory;
 import com.example.design_pattern.factoryPattern.demo1.FactoryPattern;
 import com.example.design_pattern.factoryPattern.demo1.LeiFeng;
@@ -41,5 +43,11 @@ public class FactoryPatternMain {
         leiFeng.clean();
         leiFeng.swap();
 
+    }
+
+    @Test
+    public void testDemo02() {
+        Pay wechatPay = PayFactory.createPay("wechat");
+        wechatPay.unifiedOrder();
     }
 }
