@@ -4,6 +4,8 @@ import com.example.design_pattern.factoryPattern.demo.AddOperationFactory;
 import com.example.design_pattern.factoryPattern.demo.Operation;
 import com.example.design_pattern.factoryPattern.demo02.Pay;
 import com.example.design_pattern.factoryPattern.demo02.PayFactory;
+import com.example.design_pattern.factoryPattern.demo03.AliPayFactory;
+import com.example.design_pattern.factoryPattern.demo03.WechatPayFactory;
 import com.example.design_pattern.factoryPattern.demo1.EasyFactory;
 import com.example.design_pattern.factoryPattern.demo1.FactoryPattern;
 import com.example.design_pattern.factoryPattern.demo1.LeiFeng;
@@ -49,5 +51,16 @@ public class FactoryPatternMain {
     public void testDemo02() {
         Pay wechatPay = PayFactory.createPay("wechat");
         wechatPay.unifiedOrder();
+    }
+
+    /**
+     * 测试工厂方法模式
+     */
+    @Test
+    public void testDemo03() {
+        Pay pay = new WechatPayFactory().getPay();
+        pay.unifiedOrder();
+        Pay pay1 = new AliPayFactory().getPay();
+        pay1.unifiedOrder();
     }
 }
