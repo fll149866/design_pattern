@@ -4,6 +4,7 @@ import com.example.design_pattern.prototypePattern.demo.NewResume;
 import com.example.design_pattern.prototypePattern.demo.NewResumeCopy;
 import com.example.design_pattern.prototypePattern.demo.NewResumeDeep;
 import com.example.design_pattern.prototypePattern.demo.Resume;
+import com.example.design_pattern.prototypePattern.demo01.Person;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -71,5 +72,18 @@ public class PrototypePatternMain {
         System.out.println(resumeDeep);
         System.out.println(resumeDeep1);
         System.out.println(resumeDeep2);
+    }
+
+
+    /**
+     * 测试浅拷贝
+     */
+    @Test
+    public void testDemo01() {
+        Person person = new Person();
+        person.setAge(18);
+        person.setName("GGBOM");
+
+
     }
 }

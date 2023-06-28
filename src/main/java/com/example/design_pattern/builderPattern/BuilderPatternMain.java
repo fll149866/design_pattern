@@ -2,6 +2,10 @@ package com.example.design_pattern.builderPattern;
 
 import com.example.design_pattern.builderPattern.demo.PersonDirector;
 import com.example.design_pattern.builderPattern.demo.PersonThinBuilder;
+import com.example.design_pattern.builderPattern.demo01.Computer;
+import com.example.design_pattern.builderPattern.demo01.ComputerDirector;
+import com.example.design_pattern.builderPattern.demo01.HighComputerBuilder;
+import org.junit.jupiter.api.Test;
 
 /**
  * 构造者模式
@@ -17,5 +21,12 @@ public class BuilderPatternMain {
         // 人物向导
         PersonDirector personDirector = new PersonDirector(thinBuilder);
         personDirector.createPerson();
+    }
+
+    @Test
+    public void testDemo01() {
+        ComputerDirector computerDirector = new ComputerDirector();
+        Computer computer = computerDirector.createComputer(new HighComputerBuilder());
+        System.out.println(computer);
     }
 }
